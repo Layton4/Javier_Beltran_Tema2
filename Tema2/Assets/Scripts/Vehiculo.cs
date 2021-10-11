@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Vehiculo : MonoBehaviour
 {
+    //Variable que guarda el sonido del vehículo
+    [SerializeField] private string sound = "¡Brum Brum!";
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,7 @@ public class Vehiculo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     
+
     }
 }
