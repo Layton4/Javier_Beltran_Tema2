@@ -426,10 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1170af0afa66b9e46bf272358ab2e135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 6
-  y: 2
-  a: 5
-  b: 2
+  playerAge: 12
 --- !u!65 &2033855616
 BoxCollider:
   m_ObjectHideFlags: 0
