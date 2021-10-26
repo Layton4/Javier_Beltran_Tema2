@@ -31,9 +31,15 @@ public class MyFirstScript : MonoBehaviour
      */
 
     [SerializeField] private int posicion1a8 = 0;
+    public int num1;
+    public int num2;
 
     void Start()
     {
+
+        Debug.Log(producto(2, 6));
+        Debug.Log(producto(num1, num2));
+
         /* Debug.Log($"Suma: {x} + {y} = {x + y}");
         Debug.Log("Resta: " + x + " - " + y + " = " + (x - y));
         Debug.Log($"Producto: {x} x {y} = {x*y}");
@@ -174,14 +180,7 @@ public class MyFirstScript : MonoBehaviour
 
 
 
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(transform.position);
-        if (Input.GetKeyDown(KeyCode.D)) //Moverse a la derecha cuando pulsamos la flecha derecha
+    /*  if (Input.GetKeyDown(KeyCode.D)) //Moverse a la derecha cuando pulsamos la flecha derecha
         {
             transform.position += Vector3.right;
         }
@@ -197,7 +196,8 @@ public class MyFirstScript : MonoBehaviour
         {
             transform.position += Vector3.down;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+    
+      if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             transform.rotation *= Quaternion.Euler(0, 10, 0);
         }
@@ -212,16 +212,61 @@ public class MyFirstScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             transform.rotation *= Quaternion.Euler(-10, 0, 0);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.R))
+        }*/
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        //Debug.Log(transform.position);
+
+        movementToDirection(KeyCode.D, Vector3.right);
+        movementToDirection(KeyCode.A, Vector3.left);
+        movementToDirection(KeyCode.W, Vector3.forward);
+        movementToDirection(KeyCode.S, Vector3.back);
+        movementToDirection(KeyCode.E, Vector3.up);
+        movementToDirection(KeyCode.Q, Vector3.up);
+
+       
+
+        movementToRotation(KeyCode.RightArrow, Vector3.up);
+        movementToRotation(KeyCode.LeftArrow, Vector3.down);
+        movementToRotation(KeyCode.UpArrow, Vector3.right);
+        movementToRotation(KeyCode.DownArrow, Vector3.left);
+
+        movementToEscale(KeyCode.X, Vector3.right);
+        movementToEscale(KeyCode.Y, Vector3.up);
+        movementToEscale(KeyCode.Z, Vector3.forward);
+
+    }
+
+    public void movementToDirection(KeyCode key, Vector3 direction)
+    {
+        if (Input.GetKeyDown(key)) //Moverse a la derecha cuando pulsamos la flecha derecha
         {
-            transform.localScale += Vector3.one;
+            transform.position += direction;
         }
-        if (Input.GetKeyDown(KeyCode.T))
+    }
+    public void movementToEscale(KeyCode key, Vector3 direction)
+    {
+        if (Input.GetKeyDown(key))
         {
-            transform.localScale -= Vector3.one;
+            transform.localScale += direction;
         }
+    }
+    public void movementToRotation(KeyCode key, Vector3 direction)
+    {
+        if (Input.GetKeyDown(key))
+        {
+            transform.rotation *= Quaternion.Euler(10 * direction);
+        }
+ 
+    }
+
+    public string producto(int a, int b)
+    {
+ 
+        return $"{a} x {b} = {a * b}";
     }
 }
     
