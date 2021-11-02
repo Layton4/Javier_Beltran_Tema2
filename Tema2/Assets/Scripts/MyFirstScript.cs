@@ -36,7 +36,6 @@ public class MyFirstScript : MonoBehaviour
 
     void Start()
     {
-
         Debug.Log(producto(2, 6));
         Debug.Log(producto(num1, num2));
 
